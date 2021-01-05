@@ -1,5 +1,6 @@
 {
-  "name": "cra-template-losant-solutions",
+  "name": "@losant/cra-template-losant-solutions",
+  "author": "Losant IoT",
   "version": "1.0.0",
   "keywords": [
     "react",
