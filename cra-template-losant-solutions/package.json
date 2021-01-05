@@ -1,0 +1,23 @@
+{
+  "name": "cra-template-losant-solutions",
+  "version": "1.0.0",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template",
+    "losant"
+  ],
+  "description": "The base template for Losant Solutions React Projects.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/losant/solutions-create-react-app"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}

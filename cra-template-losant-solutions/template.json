@@ -1,0 +1,30 @@
+{
+  "package":{
+    "dependencies": {
+      "@testing-library/jest-dom": "^5.11.4",
+      "@testing-library/react": "^11.1.0",
+      "@testing-library/user-event": "^12.1.10",
+      "web-vitals": "^1.0.1",
+      "axios": "^0.19.2",
+      "cross-env": "^7.0.2",
+      "@losant/eslint-config-losant": "^1.4.1",
+      "react-app-rewired": "^2.1.6",
+      "msw": "0.24.1",
+      "jest-environment-jsdom-sixteen": "^1.0.3"
+    },
+    "scripts":{
+      "start": "react-app-rewired start",
+      "start-mock": "cross-env REACT_APP_MOCK_API=true react-app-rewired start",
+      "build": "yarn run build:css && cross-env REACT_APP_TARGET=development react-app-rewired build",
+      "build-staging": "yarn run build:css && cross-env REACT_APP_TARGET=staging react-app-rewired build",
+      "build-production": "yarn run build:css && cross-env REACT_APP_TARGET=production react-app-rewired build",
+      "upload": "cd build && losant files upload /development/*/**",
+      "upload-staging": "cd build && losant files upload /staging/*/**",
+      "upload-production": "cd build && losant files upload /production/*/**",
+      "coverage": "yarn run test -- --coverage --watchAll=false"
+    },
+    "eslintConfig": {
+      "extends": "@losant/eslint-config-losant/env/browser"
+    }
+  }
+}
