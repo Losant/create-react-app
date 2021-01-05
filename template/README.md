@@ -1,7 +1,3 @@
-# Getting Started with Create React App
-
-(Please change the eslint config value in package.json to "@losant/eslint-config-losant/env/browser". This cannot be done automatically with a CRA template.)
-
 ## Available Scripts
 
 In the project directory, you can run:
