@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Status from './components/Status/Status';
-import { getTarget } from './targets';
+import targets from './targets.json';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
 
   getTargetsConfig() {
-    const dev = getTarget('development');
+    const dev = targets.development;
 
     return {
       mockAPI: process.env.REACT_APP_MOCK_API,
@@ -32,12 +32,16 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Losant Solutions</h2>
           <ul className="App-intro">
-            <li> Please run <code>losant configure</code> in the "build" directory</li>
+            <li> Please run <code>losant configure</code> in the "build" directory if you haven't yet.</li>
             <li> Target env: { target }</li>
             <li> Development URL: { developmentURL ? developmentURL : 'Please set in ./targets.js' }</li>
-            <li> Development App ID: { developmentAppId ? developmentAppId : 'Please set in ./targets.js' }</li>
+            { developmentURL && (
+              <li>Development URL <Status /> { mockAPI ? '(mocked)' : '(not mocked)'}</li>
+            )}
+            <li>Development App ID: { developmentAppId ? developmentAppId : 'Please set in ./targets.js' }</li>
+
           </ul>
-          Example API Call: <Status /> { mockAPI ? '(mocked)' : '(not mocked)'}
+
         </div>
       </div>
     );

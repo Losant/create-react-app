@@ -1,15 +1,16 @@
-import getTarget from "./src/targets"
-
-module.exports = function override(config, env) {
+/* eslint-disable no-undef */
+module.exports = function override(config) {
 
   // do not change config if running locally
-  if (process.env.RUNNING_ON === 'local') {
+  if (process.env.REACT_APP_RUNNING_ON === 'local') {
     return config;
   }
 
+  const targets = require('./src/targets.json');
+
   // determine output directory based on version building
   const targetName = process.env.REACT_APP_TARGET;
-  const target = getTarget(targetName);
+  const target = targets[targetName];
   const appId = target.appId;
 
   // remove chunking
@@ -17,18 +18,18 @@ module.exports = function override(config, env) {
     config.optimization.runtimeChunk = false;
     config.optimization.splitChunks = {
       cacheGroups: {
-        default: false,
-      },
+        default: false
+      }
     };
   }
 
   // Output folder structure
   if (config.output) {
-    config.output.filename = 'js/[name].[contenthash:8].js';
+    config.output.filename = 'js/[name].[hash:8].js';
     if (config.output && config.output.path) {
       config.output.path = config.output.path.replace(
         /build$/,
-        'build/files/' + targetName
+        `build/files/${targetName}`
       );
     }
 

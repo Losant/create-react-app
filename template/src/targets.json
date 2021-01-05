@@ -1,0 +1,8 @@
+{
+  "development":{
+    "url": "https://5ff45f29cf8c140007c2480d.onlosant.com",
+    "appId": "5ff45f29cf8c140007c2480d"
+  },
+  "staging":{},
+  "production":{}
+}

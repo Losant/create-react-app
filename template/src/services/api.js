@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getTarget } from '../targets';
+import targets from '../targets.json';
 
 export default async function ApiWrapper(
   {
@@ -7,7 +7,7 @@ export default async function ApiWrapper(
   }
 ) {
   const token = sessionStorage.getItem('LOS_EXP_TOKEN');
-  const urlBase = getTarget(process.env.REACT_APP_TARGET).url;
+  const urlBase = targets[process.env.REACT_APP_TARGET].url;
   const url = `${urlBase}${path}`;
   const config = {
     headers: {

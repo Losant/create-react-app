@@ -1,6 +1,0 @@
-{
-  "globals": {
-      "process": true,
-      "require": true
-    }
-}

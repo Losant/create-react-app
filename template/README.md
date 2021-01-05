@@ -15,5 +15,8 @@ In the project directory, you can run:
   "upload": Upload development version files
   "upload-staging": Upload staging version files
   "upload-production": Upload production version files
+  "test": Run jest tests in interactive mode
+  "test-nowatch": Run jest tests once (used in git commit hook)
+  "coverage": Create jest coverage report
   "eject": Eject the webpack config (not reversible)
 ```

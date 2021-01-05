@@ -1,7 +1,7 @@
 import { rest } from 'msw';
-import { getTarget } from '../targets';
+import targets from '../targets.json';
 
-const urlBase = getTarget(process.env.REACT_APP_TARGET).url;
+const urlBase = targets[process.env.REACT_APP_TARGET].url;
 
 export const handlers = [
   rest.get(`${urlBase}/`, (req, res, ctx) => {
